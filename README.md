@@ -15,6 +15,6 @@ cmake --build .
 ```
 How to use:
 1. Run server(located in the boost_chat_server/build)
-2. In another terminals, run several clients
+2. In another terminals, run several clients(enter your name and IP of server, as arguments)
 
 While there are problems client completion(returned Aborted core dumped) and I don't know, they will be solved
