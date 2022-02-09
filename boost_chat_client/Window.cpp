@@ -11,7 +11,7 @@ Window::Window(char* name, char* ip)
 {
     m_window->end();
     m_io->m_input->maximum_size(1024);
-    m_exit_b->callback(Window::ExitCallback, this);
+    m_exit_b->callback(Window::ExitCallback);
     m_io->m_input->callback(Window::SendCallback, m_io);
     m_send_b->callback(Window::SendCallback, m_io);
     m_io->m_input->when(FL_WHEN_ENTER_KEY|FL_WHEN_NOT_CHANGED);
@@ -25,7 +25,6 @@ Window::~Window()
 {
     m_io->m_client->SendMessage("bye\n");
     m_loop_reading->detach();
-    m_window->hide();
     delete m_loop_reading;
     delete m_buffer;
     delete m_exit_b;
@@ -63,8 +62,14 @@ void Window::ReadCallback()
     }
 }
 
-void Window::ExitCallback(Fl_Widget* w, void* arg)
+void Window::ExitCallback(Fl_Widget* w)
 {
-    Window* window = (Window*)arg;
-    delete window;
+    Fl_Widget* p;
+    do
+    {
+        p = w->parent();
+        if(p)
+            w = p;
+    } while(p);
+    w->hide();
 }

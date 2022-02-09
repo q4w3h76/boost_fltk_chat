@@ -15,7 +15,7 @@ public:
     ~Window();
     static void SendCallback(Fl_Widget* w, void* arg);
     void ReadCallback();
-    static void ExitCallback(Fl_Widget* w, void* arg);
+    static void ExitCallback(Fl_Widget* w);
 private:
     Fl_Window* m_window;
     Fl_Button* m_send_b;
