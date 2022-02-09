@@ -43,7 +43,6 @@ void Server::Listen()
 void Server::Run()
 {
     m_ioservice_thread = new boost::thread(boost::bind(&boost::asio::io_service::run, m_ioservice));
-    Fl::run();
 }
 
 //private methods
