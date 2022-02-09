@@ -1,5 +1,5 @@
 # boost_fltk_chat
-How to compiled:
+How to compiled(You should install boost and FLTK):
 ```
 git clone --recursive https://github.com/q4w3h76/boost_fltk_chat
 cd boost_fltk_chat/boost_chat_server
